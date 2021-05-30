@@ -1,6 +1,5 @@
 //
 //
-.swift
 //  MaskableImageView
 //
 //  Created by Duncan Champney on 5/30/21.
