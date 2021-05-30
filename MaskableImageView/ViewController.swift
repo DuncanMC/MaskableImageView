@@ -9,11 +9,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var maskableView: MaskableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func handleEraseRevealControl(_ sender: UISegmentedControl) {
+        if let drawingAction  = DrawingAction(rawValue: sender.selectedSegmentIndex) {
+            maskableView.drawingAction = drawingAction
+        }
+    }
 
 }
 

@@ -48,6 +48,16 @@ With multiple lines</string>
                                     <constraint firstItem="pCL-TG-lAA" firstAttribute="centerY" secondItem="Yng-cc-bfP" secondAttribute="centerY" id="kxb-N6-XxG"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZmG-Bo-OVT">
+                                <rect key="frame" x="147.5" y="821" width="119" height="32"/>
+                                <segments>
+                                    <segment title="Erase"/>
+                                    <segment title="Reveal"/>
+                                </segments>
+                                <connections>
+                                    <action selector="handleEraseRevealControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="QLZ-gh-JmQ"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -55,6 +65,8 @@ With multiple lines</string>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="leading" secondItem="KLo-3P-q1R" secondAttribute="leading" id="Cni-b5-JMQ"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HBo-eR-q1W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Yng-cc-bfP" secondAttribute="bottom" constant="80" id="IDy-yk-RE5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZmG-Bo-OVT" secondAttribute="bottom" constant="10" id="L0D-PG-HyL"/>
+                            <constraint firstItem="ZmG-Bo-OVT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UKm-bG-OAp"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Ufm-OU-TzA"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WQh-mi-3yr"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="bottom" secondItem="KLo-3P-q1R" secondAttribute="bottom" id="bOb-fL-pNY"/>
@@ -63,6 +75,9 @@ With multiple lines</string>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oSt-83-47h"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="maskableView" destination="Yng-cc-bfP" id="Bty-aT-J3F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
