@@ -15,7 +15,7 @@
 		AE599A1E2663DD7800B6538D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE599A1C2663DD7800B6538D /* LaunchScreen.storyboard */; };
 		AE599A292663DD7900B6538D /* MaskableImageViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE599A282663DD7900B6538D /* MaskableImageViewTests.swift */; };
 		AE599A342663DD7900B6538D /* MaskableImageViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE599A332663DD7900B6538D /* MaskableImageViewUITests.swift */; };
-		AE599A452663DD9400B6538D /* MaskableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE599A442663DD9400B6538D /* MaskableImageView.swift */; };
+		AE599A452663DD9400B6538D /* MaskableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE599A442663DD9400B6538D /* MaskableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		AE599A2F2663DD7900B6538D /* MaskableImageViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaskableImageViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE599A332663DD7900B6538D /* MaskableImageViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskableImageViewUITests.swift; sourceTree = "<group>"; };
 		AE599A352663DD7900B6538D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE599A442663DD9400B6538D /* MaskableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskableImageView.swift; sourceTree = "<group>"; };
+		AE599A442663DD9400B6538D /* MaskableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 			children = (
 				AE599A112663DD7500B6538D /* AppDelegate.swift */,
 				AE599A132663DD7500B6538D /* SceneDelegate.swift */,
-				AE599A442663DD9400B6538D /* MaskableImageView.swift */,
+				AE599A442663DD9400B6538D /* MaskableView.swift */,
 				AE599A152663DD7500B6538D /* ViewController.swift */,
 				AE599A172663DD7500B6538D /* Main.storyboard */,
 				AE599A1A2663DD7800B6538D /* Assets.xcassets */,
@@ -261,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE599A452663DD9400B6538D /* MaskableImageView.swift in Sources */,
+				AE599A452663DD9400B6538D /* MaskableView.swift in Sources */,
 				AE599A162663DD7500B6538D /* ViewController.swift in Sources */,
 				AE599A122663DD7500B6538D /* AppDelegate.swift in Sources */,
 				AE599A142663DD7500B6538D /* SceneDelegate.swift in Sources */,

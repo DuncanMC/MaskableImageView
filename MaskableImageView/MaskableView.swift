@@ -8,7 +8,7 @@
 import UIKit
 
 
-class MaskableImageView: UIImageView {
+class MaskableView: UIView {
 
     var maskLayer = CALayer()
 
@@ -26,7 +26,7 @@ class MaskableImageView: UIImageView {
             UIColor.black.setFill()
             ctx.fill(bounds, blendMode: .normal)
             let insetRect = bounds.insetBy(dx: bounds.width / 4, dy: bounds.height/4)
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.7).setFill()
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).setFill()
             ctx.fill(insetRect)
         }
         maskLayer.contents = image.cgImage
