@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MaskableImageView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gray Checkerboard" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-3P-q1R">
+                                <rect key="frame" x="0.0" y="64" width="414" height="621"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scampers 6685" translatesAutoresizingMaskIntoConstraints="NO" id="74N-Dp-9ys" customClass="MaskableImageView" customModule="MaskableImageView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="414" height="621"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="74N-Dp-9ys" secondAttribute="height" multiplier="6:9" id="a6G-un-uPN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KLo-3P-q1R" firstAttribute="top" secondItem="74N-Dp-9ys" secondAttribute="top" id="Dwz-py-cRL"/>
+                            <constraint firstItem="KLo-3P-q1R" firstAttribute="trailing" secondItem="74N-Dp-9ys" secondAttribute="trailing" id="EVV-BD-cJR"/>
+                            <constraint firstItem="KLo-3P-q1R" firstAttribute="leading" secondItem="74N-Dp-9ys" secondAttribute="leading" id="eCi-ts-KxJ"/>
+                            <constraint firstItem="74N-Dp-9ys" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mk0-rD-kVm"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="74N-Dp-9ys" secondAttribute="trailing" id="rwx-X4-s7A"/>
+                            <constraint firstItem="KLo-3P-q1R" firstAttribute="bottom" secondItem="74N-Dp-9ys" secondAttribute="bottom" id="sQ2-mj-AA0"/>
+                            <constraint firstItem="74N-Dp-9ys" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tIU-Nx-jxh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="74N-Dp-9ys" secondAttribute="bottom" constant="60" id="uiR-s1-Pzj"/>
+                            <constraint firstItem="74N-Dp-9ys" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="wyC-8I-r43"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="89.855072463768124" y="103.79464285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Gray Checkerboard" width="600" height="900"/>
+        <image name="Scampers 6685" width="600" height="900"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
