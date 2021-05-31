@@ -32,16 +32,14 @@ class MaskableView: UIView {
             installSampleMask()
             firstTime = false
         } else {
-            installSampleMask()
-
-//            guard let renderer = renderer else { return }
-//            let image = renderer.image { (context) in
-//                if let maskImage = maskImage {
-//                    maskImage.draw(in: bounds)
-//                }
-//            }
-//            maskImage = image
-//            maskLayer.contents = maskImage?.cgImage
+            guard let renderer = renderer else { return }
+            let image = renderer.image { (context) in
+                if let maskImage = maskImage {
+                    maskImage.draw(in: bounds)
+                }
+            }
+            maskImage = image
+            maskLayer.contents = maskImage?.cgImage
 
         }
     }
