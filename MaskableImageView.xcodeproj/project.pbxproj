@@ -16,6 +16,8 @@
 		AE599A292663DD7900B6538D /* MaskableImageViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE599A282663DD7900B6538D /* MaskableImageViewTests.swift */; };
 		AE599A342663DD7900B6538D /* MaskableImageViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE599A332663DD7900B6538D /* MaskableImageViewUITests.swift */; };
 		AE599A452663DD9400B6538D /* MaskableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE599A442663DD9400B6538D /* MaskableView.swift */; };
+		AEB083D526651F4D00E360DC /* TouchDownPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB083D426651F4D00E360DC /* TouchDownPanGestureRecognizer.swift */; };
+		AEB083DD26652B0A00E360DC /* UIView+layerProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB083DC26652B0A00E360DC /* UIView+layerProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		AE599A332663DD7900B6538D /* MaskableImageViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskableImageViewUITests.swift; sourceTree = "<group>"; };
 		AE599A352663DD7900B6538D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE599A442663DD9400B6538D /* MaskableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskableView.swift; sourceTree = "<group>"; };
+		AEB083D426651F4D00E360DC /* TouchDownPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchDownPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		AEB083DC26652B0A00E360DC /* UIView+layerProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+layerProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				AE599A112663DD7500B6538D /* AppDelegate.swift */,
+				AEB083D426651F4D00E360DC /* TouchDownPanGestureRecognizer.swift */,
 				AE599A132663DD7500B6538D /* SceneDelegate.swift */,
+				AEB083DC26652B0A00E360DC /* UIView+layerProperties.swift */,
 				AE599A442663DD9400B6538D /* MaskableView.swift */,
 				AE599A152663DD7500B6538D /* ViewController.swift */,
 				AE599A172663DD7500B6538D /* Main.storyboard */,
@@ -263,8 +269,10 @@
 			files = (
 				AE599A452663DD9400B6538D /* MaskableView.swift in Sources */,
 				AE599A162663DD7500B6538D /* ViewController.swift in Sources */,
+				AEB083D526651F4D00E360DC /* TouchDownPanGestureRecognizer.swift in Sources */,
 				AE599A122663DD7500B6538D /* AppDelegate.swift in Sources */,
 				AE599A142663DD7500B6538D /* SceneDelegate.swift in Sources */,
+				AEB083DD26652B0A00E360DC /* UIView+layerProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

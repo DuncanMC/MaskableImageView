@@ -57,6 +57,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         circleRadius = 20
         maskDrawingAlpha = 0.5
+        maskableView.circleCursorColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.8)
     }
 
     override func viewDidLayoutSubviews() {
