@@ -1,6 +1,6 @@
 //
 //
-//  MaskableImageView
+//  MaskableView
 //
 //  Created by Duncan Champney on 5/30/21.
 //
@@ -16,21 +16,18 @@ class MaskableView: UIView {
 
     public var drawingAction: DrawingAction = .erase
     public var circleRadius: CGFloat = 20
+    public var maskDrawingAlpha: CGFloat = 1.0
     var maskImage: UIImage? = nil
 
     private var maskLayer = CALayer()
     private var renderer: UIGraphicsImageRenderer?
-    private var gestureRecognizer = UIPanGestureRecognizer()
+    private var panGestureRecognizer = UIPanGestureRecognizer()
+    private var tapGestureRecognizer = UITapGestureRecognizer()
 
-    override var bounds: CGRect {
-        didSet {
-            print("Bounds = \(bounds)")
-            maskLayer.frame = layer.bounds
-            renderer = UIGraphicsImageRenderer(size: bounds.size)
-            installSampleMask()
-        }
+    public func updateBounds() {
+        maskLayer.frame = layer.bounds
+        installSampleMask()
     }
-
 
     func installSampleMask() {
         guard let renderer = renderer else { return }
@@ -54,8 +51,18 @@ class MaskableView: UIView {
                  let rect = CGRect(origin: point, size: CGSize.zero).insetBy(dx: -circleRadius/2, dy: -circleRadius/2)
                 let color = UIColor.black.cgColor
                 context.cgContext.setFillColor(color)
-                let blendMode: CGBlendMode = drawingAction == .erase ? .clear : .normal
-                UIBezierPath(ovalIn:rect).fill(with: blendMode, alpha: 1.0)
+                let blendMode: CGBlendMode
+                let alpha: CGFloat
+                if drawingAction == .erase {
+                    // This is what I worked out to reduce the alpha of the mask by maskDrawingAlpha in the drawing area
+                    blendMode = .sourceIn
+                    alpha = 1 - maskDrawingAlpha
+                } else {
+                    // In normal drawing mode the new drawing alpha is added to the alpha of the existing area.
+                    blendMode = .normal
+                    alpha = maskDrawingAlpha
+                }
+                UIBezierPath(ovalIn:rect).fill(with: blendMode, alpha: alpha)
             }
         }
         maskImage = image
@@ -78,13 +85,11 @@ class MaskableView: UIView {
     }
 
     func doInitSetup() {
+        renderer = UIGraphicsImageRenderer(size: bounds.size)
         layer.mask = maskLayer
-        self.addGestureRecognizer(gestureRecognizer)
-        gestureRecognizer.addTarget(self, action: #selector(didDrag(_:)))
+        self.addGestureRecognizer(panGestureRecognizer)
+        self.addGestureRecognizer(tapGestureRecognizer)
+        panGestureRecognizer.addTarget(self, action: #selector(didDrag(_:)))
+        tapGestureRecognizer.addTarget(self, action: #selector(didDrag(_:)))
     }
-
-}
-
-extension MaskableView: UIGestureRecognizerDelegate {
-
 }
