@@ -46,6 +46,14 @@ With multiple lines</string>
                                     <constraint firstAttribute="trailing" secondItem="18D-iQ-xl1" secondAttribute="trailing" id="hwi-5j-6Yg"/>
                                     <constraint firstItem="pCL-TG-lAA" firstAttribute="centerY" secondItem="Yng-cc-bfP" secondAttribute="centerY" id="kxb-N6-XxG"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OBU-NS-dmI" userLabel="Radius stackview">
                                 <rect key="frame" x="12" y="741" width="390" height="30"/>

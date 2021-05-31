@@ -17,19 +17,36 @@ class MaskableView: UIView {
     public var drawingAction: DrawingAction = .erase
     public var circleRadius: CGFloat = 20
     public var maskDrawingAlpha: CGFloat = 1.0
-    var maskImage: UIImage? = nil
 
+    private var maskImage: UIImage? = nil
     private var maskLayer = CALayer()
     private var renderer: UIGraphicsImageRenderer?
     private var panGestureRecognizer = UIPanGestureRecognizer()
     private var tapGestureRecognizer = UITapGestureRecognizer()
 
+    private var firstTime = true
+
     public func updateBounds() {
         maskLayer.frame = layer.bounds
-        installSampleMask()
+        if firstTime {
+            installSampleMask()
+            firstTime = false
+        } else {
+            installSampleMask()
+
+//            guard let renderer = renderer else { return }
+//            let image = renderer.image { (context) in
+//                if let maskImage = maskImage {
+//                    maskImage.draw(in: bounds)
+//                }
+//            }
+//            maskImage = image
+//            maskLayer.contents = maskImage?.cgImage
+
+        }
     }
 
-    func installSampleMask() {
+    private func installSampleMask() {
         guard let renderer = renderer else { return }
         let image = renderer.image { (ctx) in
             UIColor.black.setFill()
@@ -69,7 +86,8 @@ class MaskableView: UIView {
         maskLayer.contents = maskImage?.cgImage
     }
 
-    @IBAction func didDrag(_ sender: UIPanGestureRecognizer) {
+    // Erase/un-erase the point from the tap/pan gesture recognzier
+    @IBAction func gestureRecognizerUpdate(_ sender: UIGestureRecognizer) {
         let point = sender.location(in: self)
         drawCircleAtPoint(point: point)
     }
@@ -89,7 +107,11 @@ class MaskableView: UIView {
         layer.mask = maskLayer
         self.addGestureRecognizer(panGestureRecognizer)
         self.addGestureRecognizer(tapGestureRecognizer)
-        panGestureRecognizer.addTarget(self, action: #selector(didDrag(_:)))
-        tapGestureRecognizer.addTarget(self, action: #selector(didDrag(_:)))
+
+        // Set up a pan gesture recognizer to erase/un-erase a series of circles as the user drags over the image.
+        panGestureRecognizer.addTarget(self, action: #selector(gestureRecognizerUpdate(_:)))
+
+        // Also install a tap gesture recognizer since pan gesture recognizers don't respond to the inital tap on a view.
+        tapGestureRecognizer.addTarget(self, action: #selector(gestureRecognizerUpdate(_:)))
     }
 }
