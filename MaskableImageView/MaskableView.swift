@@ -18,13 +18,20 @@ import UIKit.UIGestureRecognizerSubclass
 class MaskableView: UIView {
 
     public var drawingAction: DrawingAction = .erase
-    public var circleRadius: CGFloat = 20
+    @objc @IBInspectable public var circleRadius: CGFloat = 20
     public var maskDrawingAlpha: CGFloat = 1.0
 
-    /// This color is used to draw the "cursor" around the circle shape being drawn onto the mask layer. By default the color is clear (no cursor)
+    /// This color is used to draw the "cursor" around the circle shape being drawn onto the mask layer. By default the color is nil (no cursor)
     /// Set a color if you want to stroke the circle being drawn.
-    public var circleCursorColor = UIColor.clear {
-        didSet { shapeLayer.strokeColor = circleCursorColor.cgColor }
+    @objc @IBInspectable public var circleCursorColor: UIColor? = nil {
+        didSet { shapeLayer.strokeColor = circleCursorColor?.cgColor }
+    }
+
+    /// This color is used to draw an outer circle around the  circle shape being drawn onto the mask layer. By default the color is nil (no cursor)
+    /// Use a outerCircleCursorColor that contrasts with the  circleCursorColor
+    /// (e.g. use a dark outerCircleCursorColor for a light circleCursorColor)
+    @objc @IBInspectable public var outerCircleCursorColor: UIColor? = nil {
+        didSet { outerShapeLayer.strokeColor = outerCircleCursorColor?.cgColor }
     }
 
     // MARK: - Private vars
@@ -32,6 +39,7 @@ class MaskableView: UIView {
     private var maskImage: UIImage? = nil
     private var maskLayer = CALayer()
     private var shapeLayer = CAShapeLayer()
+    private var outerShapeLayer = CAShapeLayer()
     private var renderer: UIGraphicsImageRenderer?
     private var panGestureRecognizer = TouchDownPanGestureRecognizer()
 
@@ -42,9 +50,12 @@ class MaskableView: UIView {
     public func updateBounds() {
         maskLayer.frame = layer.bounds
         shapeLayer.frame = layer.frame
+        outerShapeLayer.frame = layer.frame
         if firstTime {
+            renderer = UIGraphicsImageRenderer(size: bounds.size)
             installSampleMask()
             layer.superlayer?.addSublayer(shapeLayer)
+            layer.superlayer?.addSublayer(outerShapeLayer)
             firstTime = false
         } else {
             guard let renderer = renderer else { return }
@@ -92,9 +103,19 @@ class MaskableView: UIView {
                     blendMode = .normal
                     alpha = maskDrawingAlpha
                 }
-                let circlePath = UIBezierPath(ovalIn:rect)
-                circlePath.fill(with: blendMode, alpha: alpha)
-                shapeLayer.path = circlePath.cgPath
+
+                if circleCursorColor != nil {
+                    let circlePath = UIBezierPath(ovalIn:rect)
+                    circlePath.fill(with: blendMode, alpha: alpha)
+                    shapeLayer.path = circlePath.cgPath
+                }
+
+                if outerCircleCursorColor != nil {
+                    let outerRect = rect.insetBy(dx: -2, dy: -2)
+                    let outerCirclePath = UIBezierPath(ovalIn:outerRect)
+                    outerCirclePath.fill(with: blendMode, alpha: alpha)
+                    outerShapeLayer.path = outerCirclePath.cgPath
+                }
             }
         }
         maskImage = image
@@ -106,9 +127,11 @@ class MaskableView: UIView {
     // Erase/un-erase the point from the tap/pan gesture recognzier
     @IBAction func gestureRecognizerUpdate(_ sender: UIGestureRecognizer) {
         let point = sender.location(in: self)
-        drawCircleAtPoint(point: point)
-        if sender.state == .ended {
+        if sender.state != .ended {
+            drawCircleAtPoint(point: point)
+        } else {
             self.shapeLayer.path = nil
+            self.outerShapeLayer.path = nil
         }
     }
 
@@ -125,11 +148,14 @@ class MaskableView: UIView {
     }
 
     func doInitSetup() {
-        renderer = UIGraphicsImageRenderer(size: bounds.size)
-        layer.mask = maskLayer
-        shapeLayer.strokeColor = circleCursorColor.cgColor
+        shapeLayer.strokeColor = circleCursorColor?.cgColor
         shapeLayer.lineWidth = 2
         shapeLayer.fillColor = UIColor.clear.cgColor
+        outerShapeLayer.strokeColor = outerCircleCursorColor?.cgColor
+        outerShapeLayer.lineWidth = 1
+        outerShapeLayer.fillColor = UIColor.clear.cgColor
+
+        layer.mask = maskLayer
 
         // Set up a pan gesture recognizer to erase/un-erase a series of circles as the user drags over the image.
         panGestureRecognizer.addTarget(self, action: #selector(gestureRecognizerUpdate(_:)))

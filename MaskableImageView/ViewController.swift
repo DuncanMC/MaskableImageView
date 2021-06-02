@@ -58,6 +58,7 @@ class ViewController: UIViewController {
         circleRadius = 20
         maskDrawingAlpha = 0.5
         maskableView.circleCursorColor = UIColor(red: 1, green: 1, blue: 0, alpha: 0.8)
+        maskableView.outerCircleCursorColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     }
 
     override func viewDidLayoutSubviews() {
