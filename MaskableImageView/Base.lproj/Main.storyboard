@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gray Checkerboard" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-3P-q1R">
-                                <rect key="frame" x="0.0" y="64" width="414" height="621"/>
+                                <rect key="frame" x="0.0" y="49" width="414" height="621"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yng-cc-bfP" customClass="MaskableView" customModule="MaskableImageView" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="414" height="621"/>
+                                <rect key="frame" x="0.0" y="49" width="414" height="621"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scampers 6685" translatesAutoresizingMaskIntoConstraints="NO" id="18D-iQ-xl1">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
@@ -53,7 +53,7 @@ With multiple lines</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OBU-NS-dmI" userLabel="Radius stackview">
-                                <rect key="frame" x="12" y="741" width="390" height="30"/>
+                                <rect key="frame" x="12" y="756" width="390" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Circle radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwY-n3-vXJ">
                                         <rect key="frame" x="0.0" y="0.0" width="99.5" height="30"/>
@@ -79,7 +79,7 @@ With multiple lines</string>
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZmG-Bo-OVT">
-                                <rect key="frame" x="147.5" y="821" width="119" height="32"/>
+                                <rect key="frame" x="147.5" y="826" width="119" height="32"/>
                                 <segments>
                                     <segment title="Erase"/>
                                     <segment title="Reveal"/>
@@ -103,7 +103,7 @@ With multiple lines</string>
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v0i-2v-OPT" userLabel="Alpha stackview">
-                                <rect key="frame" x="5.5" y="781" width="403" height="30"/>
+                                <rect key="frame" x="5.5" y="791" width="403" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mask Alpha:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAq-EL-K2L">
                                         <rect key="frame" x="0.0" y="0.0" width="93" height="30"/>
@@ -135,17 +135,17 @@ With multiple lines</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="OBU-NS-dmI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yng-cc-bfP" secondAttribute="bottom" priority="999" constant="10" id="5XR-t1-epc"/>
+                            <constraint firstItem="OBU-NS-dmI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Yng-cc-bfP" secondAttribute="bottom" priority="999" id="5XR-t1-epc"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="leading" secondItem="KLo-3P-q1R" secondAttribute="leading" id="Cni-b5-JMQ"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="999" id="HBo-eR-q1W"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZmG-Bo-OVT" secondAttribute="bottom" constant="10" id="L0D-PG-HyL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZmG-Bo-OVT" secondAttribute="bottom" constant="5" id="L0D-PG-HyL"/>
                             <constraint firstItem="ZmG-Bo-OVT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UKm-bG-OAp"/>
-                            <constraint firstItem="Yng-cc-bfP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="999" constant="20" id="Ufm-OU-TzA"/>
-                            <constraint firstItem="ZmG-Bo-OVT" firstAttribute="top" secondItem="v0i-2v-OPT" secondAttribute="bottom" constant="10" id="V0m-G2-cMR"/>
+                            <constraint firstItem="Yng-cc-bfP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="999" constant="5" id="Ufm-OU-TzA"/>
+                            <constraint firstItem="ZmG-Bo-OVT" firstAttribute="top" secondItem="v0i-2v-OPT" secondAttribute="bottom" constant="5" id="V0m-G2-cMR"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WQh-mi-3yr"/>
                             <constraint firstItem="OBU-NS-dmI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZFQ-b4-pmN"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="bottom" secondItem="KLo-3P-q1R" secondAttribute="bottom" id="bOb-fL-pNY"/>
-                            <constraint firstItem="v0i-2v-OPT" firstAttribute="top" secondItem="OBU-NS-dmI" secondAttribute="bottom" constant="10" id="c7D-S0-9kc"/>
+                            <constraint firstItem="v0i-2v-OPT" firstAttribute="top" secondItem="OBU-NS-dmI" secondAttribute="bottom" constant="5" id="c7D-S0-9kc"/>
                             <constraint firstItem="v0i-2v-OPT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="igh-nt-5NK"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="top" secondItem="KLo-3P-q1R" secondAttribute="top" id="kx4-Nt-WB5"/>
                             <constraint firstItem="Yng-cc-bfP" firstAttribute="trailing" secondItem="KLo-3P-q1R" secondAttribute="trailing" id="lty-Rh-Cte"/>
