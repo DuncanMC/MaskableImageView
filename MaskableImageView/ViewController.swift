@@ -53,6 +53,27 @@ class ViewController: UIViewController {
         maskDrawingAlpha = CGFloat(sender.value)
     }
 
+    @IBAction func handleSaveButton(_ sender: UIButton) {
+        print("In handleSaveButton")
+        if let image = maskableView.image,
+           let pngData = image.pngData(){
+            print(image.description)
+            let imageURL = getDocumentsDirectory().appendingPathComponent("image.png", isDirectory: false)
+            do {
+                try pngData.write(to: imageURL)
+                print("Wrote png to \(imageURL.path)")
+            }
+            catch {
+                print("Error writing file to \(imageURL.path)")
+            }
+        }
+    }
+
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         circleRadius = 20

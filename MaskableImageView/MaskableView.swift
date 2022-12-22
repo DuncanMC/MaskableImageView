@@ -20,6 +20,15 @@ class MaskableView: UIView {
     public var drawingAction: DrawingAction = .erase
     @objc @IBInspectable public var circleRadius: CGFloat = 20
     public var maskDrawingAlpha: CGFloat = 1.0
+    public var image: UIImage? {
+        guard let renderer = renderer else { return nil}
+        let result = renderer.image {
+            context in
+
+            return layer.render(in: context.cgContext)
+        }
+        return result
+    }
 
     /// This color is used to draw the "cursor" around the circle shape being drawn onto the mask layer. By default the color is nil (no cursor)
     /// Set a color if you want to stroke the circle being drawn.
